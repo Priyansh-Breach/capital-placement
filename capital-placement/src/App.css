@@ -1,0 +1,10 @@
+#OuterCover {
+    display: flex;
+    flex-direction: row;
+}
+
+#main_body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

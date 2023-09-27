@@ -1,0 +1,25 @@
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 5vw;
+    height: 100vh;
+    padding-top: 2.5vh;
+    box-sizing: border-box;
+    box-shadow: 10px 0px 10px -10px rgba(0, 0, 0, 0.25);
+}
+
+.icons {
+    margin: 2vh 0;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+#toggle_sidebar {
+    margin-bottom: 7vh;
+}
+
+#sidebar_checklist {
+    width: 1.5rem;
+    height: 1.5rem;
+}
