@@ -1,6 +1,5 @@
 // PersonalInfoForm.tsx
 import React, { useState } from 'react';
-// import "./personalInfoForm.css";
 import { AiOutlinePlus } from 'react-icons/ai';
 import PersonalInfoQuestion from './personalInfoQuestion';
 
@@ -12,8 +11,8 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ addPersonalInfoQues
   const [questionType, setQuestionType] = useState('');
   const [questionText, setQuestionText] = useState('');
   const [modifiable, setModifiable] = useState(false);
-  const [internal, setInternal] = useState(false);
-  const [hidden, setHidden] = useState(false);
+  const [internal, setInternal] = useState(true); // Default to true
+  const [hidden, setHidden] = useState(true); // Default to true
 
   const handleAddQuestion = () => {
     if (!questionType || !questionText) {
@@ -22,22 +21,23 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({ addPersonalInfoQues
     }
 
     const newPersonalInfoQuestion: PersonalInfoQuestion = {
-      id: Date.now(),
+      id: Date.now().toString(), // Convert to string
       type: questionType,
       questionText,
       modifiable,
-      internal: modifiable ? internal : undefined,
-      hidden: modifiable ? hidden : undefined,
+      internal, // Use the state value
+      hidden, // Use the state value
     };
 
     addPersonalInfoQuestion(newPersonalInfoQuestion);
     setQuestionType('');
     setQuestionText('');
     setModifiable(false);
-    setInternal(false);
-    setHidden(false);
+    setInternal(true); // Reset to true
+    setHidden(true); // Reset to true
   };
 
+  
   return (
     <div id='Personal_info_form'>
       <p className='headings'>Type</p>

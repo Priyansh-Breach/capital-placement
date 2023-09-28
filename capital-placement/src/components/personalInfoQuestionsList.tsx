@@ -1,12 +1,18 @@
 // PersonalInfoQuestionsList.tsx
 import React from 'react';
-import PersonalInfoQuestion from './personalInfoQuestion'; // Import the PersonalInfoQuestion type
+import PersonalInfoQuestion from './personalInfoQuestion';
 
 interface PersonalInfoQuestionsListProps {
   questions: PersonalInfoQuestion[];
+  toggleInternal: (id: string) => void;
+  toggleHidden: (id: string) => void;
 }
 
-const PersonalInfoQuestionsList: React.FC<PersonalInfoQuestionsListProps> = ({ questions }) => {
+const PersonalInfoQuestionsList: React.FC<PersonalInfoQuestionsListProps> = ({
+  questions,
+  toggleInternal,
+  toggleHidden,
+}) => {
   return (
     <div>
       <h2>Personal Information Questions</h2>
@@ -15,13 +21,12 @@ const PersonalInfoQuestionsList: React.FC<PersonalInfoQuestionsListProps> = ({ q
           <li key={question.id}>
             <strong>Question Type:</strong> {question.type}<br />
             <strong>Question Text:</strong> {question.questionText}<br />
-            <strong>Modifiable:</strong> {question.modifiable ? 'Yes' : 'No'}<br />
-            {question.modifiable && (
-              <>
-                <strong>Internal:</strong> {question.internal ? 'Yes' : 'No'}<br />
-                <strong>Hidden:</strong> {question.hidden ? 'Yes' : 'No'}<br />
-              </>
-            )}
+            <button onClick={() => toggleInternal(question.id)}>
+              Toggle Internal: {question.internal ? 'On' : 'Off'}
+            </button><br />
+            <button onClick={() => toggleHidden(question.id)}>
+              Toggle Hidden: {question.hidden ? 'On' : 'Off'}
+            </button><br />
           </li>
         ))}
       </ul>

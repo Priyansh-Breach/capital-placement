@@ -53,9 +53,9 @@ const QuestionForm: React.FC<QuestionFormProps> = ({ addQuestion }) => {
     setEnableOtherOption(false);
     setMaxChoices(undefined);
     setDisqualifyNo(false);
-    setQuestionDescription(''); // Added
-    setMaxDuration(undefined); // Added
-    setDurationUnit(''); // Added
+    setQuestionDescription('');
+    setMaxDuration(undefined);
+    setDurationUnit('');
   };
 
   const handleAddOption = () => {

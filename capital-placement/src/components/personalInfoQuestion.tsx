@@ -1,6 +1,6 @@
 // Define the PersonalInfoQuestion type
 interface PersonalInfoQuestion {
-  id: number;
+  id: string;
   type: string; // Question type (e.g., Short Answer, Number, Date, Dropdown)
   questionText: string; // The text of the question
   modifiable: boolean; // Indicates if the field is modifiable

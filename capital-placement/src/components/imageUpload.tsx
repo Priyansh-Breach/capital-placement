@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import './imageUpload.css';
 import {FiUpload} from "react-icons/fi"
 
-const ImageUpload: React.FC = () => {
-  const [image, setImage] = useState<File | null>(null);
 
-  // const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const selectedImage = e.target.files?.[0];
-  //   if (selectedImage) {
-  //     setImage(selectedImage);
-  //   }
-  // };
+interface ImageUploadProps {
+  GetData: (data: any) => void; // Define the prop for the function
+}
+
+
+const ImageUpload: React.FC<ImageUploadProps> = ({GetData}) => {
+  const [image, setImage] = useState<File | null>(null);
 
   const handleDeleteImage = () => {
     setImage(null);
+    GetData(null);
   };
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
@@ -25,6 +25,7 @@ const ImageUpload: React.FC = () => {
     const droppedImage = e.dataTransfer.files[0];
     if (droppedImage) {
       setImage(droppedImage);
+      GetData(droppedImage);
     }
   };
 
